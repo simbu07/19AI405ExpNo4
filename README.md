@@ -1,18 +1,18 @@
 <h1>ExpNo 4 : Implement A* search algorithm for a Graph</h1> 
-<h3>Name: Saravanan N</h3>
-<h3>Register Number/Staff Id: TSML006</h3>
+<h3>Name:silambarasan K</h3>
+<h3>Register Number: 212221230101</h3>
 <H3>Aim:</H3>
 <p>To ImplementA * Search algorithm for a Graph using Python 3.</p>
 <H3>Algorithm:</H3>
 
-``````
-// A* Search Algorithm
+A* Search Algorithm
 1.  Initialize the open list
 2.  Initialize the closed list
     put the starting node on the open 
     list (you can leave its f at zero)
 
 3.  while the open list is not empty
+
     a) find the node with the least f on 
        the open list, call it "q"
 
@@ -22,11 +22,11 @@
        parents to q
    
     d) for each successor
+    
         i) if successor is the goal, stop search
         
         ii) else, compute both g and h for successor
-          successor.g = q.g + distance between 
-                              successor and q
+          successor.g = q.g + distance between  successor and q
           successor.h = distance from goal to 
           successor (This can be done using many 
           ways, we will discuss three heuristics- 
@@ -48,7 +48,69 @@
     e) push q on the closed list
     end (while loop)
 
-``````
+<h2>PROGRAM</h2>
+
+
+```python 
+import heapq
+
+class Graph:
+    def __init__(self):
+        self.vertices = {}
+
+    def add_vertex(self, vertex, edges):
+        self.vertices[vertex] = edges
+
+    def heuristic(self, node, goal):
+        # A simple heuristic function, you may modify this according to your problem
+        return abs(node[0] - goal[0]) + abs(node[1] - goal[1])
+
+    def a_star_search(self, start, goal):
+        open_set = []
+        heapq.heappush(open_set, (0, start))
+        came_from = {}
+        g_score = {vertex: float('inf') for vertex in self.vertices}
+        g_score[start] = 0
+        f_score = {vertex: float('inf') for vertex in self.vertices}
+        f_score[start] = self.heuristic(start, goal)
+
+        while open_set:
+            current = heapq.heappop(open_set)[1]
+
+            if current == goal:
+                path = []
+                while current in came_from:
+                    path.append(current)
+                    current = came_from[current]
+                path.append(start)
+                return path[::-1]
+
+            for neighbor in self.vertices[current]:
+                tentative_g_score = g_score[current] + self.vertices[current][neighbor]
+                if tentative_g_score < g_score[neighbor]:
+                    came_from[neighbor] = current
+                    g_score[neighbor] = tentative_g_score
+                    f_score[neighbor] = tentative_g_score + self.heuristic(neighbor, goal)
+                    if neighbor not in [item[1] for item in open_set]:
+                        heapq.heappush(open_set, (f_score[neighbor], neighbor))
+        return None
+if __name__ == "__main__":
+    graph = Graph()
+    graph.add_vertex('A', {'B': 5, 'C': 10})
+    graph.add_vertex('B', {'A': 5, 'D': 8})
+    graph.add_vertex('C', {'A': 10, 'D': 5})
+    graph.add_vertex('D', {'B': 8, 'C': 5})
+
+    start = 'A'
+    goal = 'D'
+
+    path = graph.a_star_search(start, goal)
+    if path:
+        print("Path found:", path)
+    else:
+        print("Path not found")
+
+```
 
 <hr>
 <h2>Sample Graph I</h2>
@@ -117,3 +179,7 @@ G 0 <br>
 <h2>Sample Output</h2>
 <hr>
 Path found: ['A', 'E', 'D', 'G']
+
+
+## Result:
+Thus the A* implementation is successfull executed.
