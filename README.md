@@ -1,6 +1,7 @@
-<h1>ExpNo 4 : Implement A* search algorithm for a Graph</h1> 
-<h3>Name:silambarasan K</h3>
-<h3>Register Number: 212221230101</h3>
+<h2 align = center>ExpNo 4 : Implement A* search algorithm for a Graph</h2> 
+<h4>Name:silambarasan K</h4>
+<h4>Register Number: 212221230101</h4>
+<h4>Date: 01/03/2024
 <H3>Aim:</H3>
 <p>To ImplementA * Search algorithm for a Graph using Python 3.</p>
 <H3>Algorithm:</H3>
@@ -115,9 +116,7 @@ if __name__ == "__main__":
 <hr>
 <h2>Sample Graph I</h2>
 <hr>
-
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/b1377c3f-011a-4c0f-a843-516842ae056a)
-
+<img src="https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/b1377c3f-011a-4c0f-a843-516842ae056a" width="300" height="250">
 <hr>
 <h2>Sample Input</h2>
 <hr>
@@ -156,8 +155,7 @@ Path found: ['A', 'F', 'G', 'I', 'J']
 <h2>Sample Graph II</h2>
 <hr>
 
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/acbb09cb-ed39-48e5-a59b-2f8d61b978a3)
-
+<img src="https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/acbb09cb-ed39-48e5-a59b-2f8d61b978a3" width="300" height="250">
 
 <hr>
 <h2>Sample Input</h2>
